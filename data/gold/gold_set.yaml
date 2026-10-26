@@ -1,0 +1,1004 @@
+# Gold set for rag-with-evals (demo corpus: data/samples/*.md -> data/corpus/*.pdf).
+# 80 items: 60 answerable, 20 unanswerable. Every answerable item is annotated
+# with the (source, page) that contains the answer, verified against the built
+# PDFs. Reference answers are written in prose, not copied verbatim.
+# Replace this file with your own gold set for your own corpus.
+
+items:
+- id: g001
+  question: How is the internal risk score calculated?
+  reference_answer: Likelihood from 1 to 4 multiplied by severity from 1 to 4, giving a score from 1 to
+    16.
+  answerable: true
+  gold_sources:
+  - source: dpia_governance_playbook.pdf
+    page: 1
+  tags:
+  - playbook
+  - risk
+  difficulty: easy
+  notes: ''
+- id: g002
+  question: What conditions must be met for the right to data portability to apply?
+  reference_answer: Processing must be based on consent or contract and carried out by automated means;
+    the data is then provided in a structured, commonly used, machine-readable format.
+  answerable: true
+  gold_sources:
+  - source: gdpr_essentials.pdf
+    page: 2
+  tags:
+  - gdpr
+  - data_subject_rights
+  difficulty: medium
+  notes: ''
+- id: g003
+  question: What information must be provided under the right of access in Article 15?
+  reference_answer: Confirmation of processing, access to the data, and information on purposes, categories
+    of data, recipients, retention periods, the existence of the other rights, the source of the data,
+    and the existence of automated decision-making.
+  answerable: true
+  gold_sources:
+  - source: gdpr_essentials.pdf
+    page: 2
+  tags:
+  - gdpr
+  - data_subject_rights
+  difficulty: medium
+  notes: ''
+- id: g004
+  question: What happens to a model whose evaluation is more than twelve months old?
+  reference_answer: It is withdrawn from production until re-evaluated; at more than six months it is
+    flagged.
+  answerable: true
+  gold_sources:
+  - source: dpia_governance_playbook.pdf
+    page: 2
+  tags:
+  - playbook
+  - governance
+  difficulty: medium
+  notes: ''
+- id: g005
+  question: What is the internal target for notifying a breach to the supervisory authority?
+  reference_answer: 48 hours, against the legal maximum of 72 hours, to leave margin for legal review.
+  answerable: true
+  gold_sources:
+  - source: dpia_governance_playbook.pdf
+    page: 2
+  tags:
+  - playbook
+  - incidents
+  difficulty: medium
+  notes: ''
+- id: g006
+  question: What must the vendor due-diligence checklist cover?
+  reference_answer: Processing locations and transfer mechanisms, subprocessors and change notice, whether
+    customer data is used for training, retention of prompts, outputs and logs, security certifications,
+    contractual incident notification time, audit rights, and AI Act model documentation.
+  answerable: true
+  gold_sources:
+  - source: dpia_governance_playbook.pdf
+    page: 1
+  tags:
+  - playbook
+  - vendors
+  difficulty: hard
+  notes: ''
+- id: g007
+  question: How many triggers make an internal impact assessment mandatory?
+  reference_answer: Two triggers mean an assessment is required; one trigger means the privacy team makes
+    a documented judgement call.
+  answerable: true
+  gold_sources:
+  - source: dpia_governance_playbook.pdf
+    page: 1
+  tags:
+  - playbook
+  - dpia
+  difficulty: easy
+  notes: ''
+- id: g008
+  question: For how long must a deployer keep the logs it controls?
+  reference_answer: At least six months.
+  answerable: true
+  gold_sources:
+  - source: ai_act_overview.pdf
+    page: 2
+  tags:
+  - ai_act
+  - deployers
+  difficulty: medium
+  notes: ''
+- id: g009
+  question: Does a fundamental rights impact assessment replace a DPIA?
+  reference_answer: No. Where both are required they are run as one exercise with two outputs.
+  answerable: true
+  gold_sources:
+  - source: dpia_governance_playbook.pdf
+    page: 2
+  tags:
+  - playbook
+  - overlap
+  difficulty: medium
+  notes: ''
+- id: g010
+  question: How is the conflict between AI Act logging and GDPR storage limitation resolved internally?
+  reference_answer: Logs are retained for the minimum period required by the AI Act and pseudonymised
+    where the log does not need to identify an individual.
+  answerable: true
+  gold_sources:
+  - source: dpia_governance_playbook.pdf
+    page: 2
+  tags:
+  - playbook
+  - overlap
+  difficulty: hard
+  notes: ''
+- id: g011
+  question: How many data subjects does a processing operation need before it counts as large scale?
+  reference_answer: ''
+  answerable: false
+  gold_sources: []
+  tags:
+  - gdpr
+  - unanswerable
+  difficulty: medium
+  notes: Corpus does not cover this; the only correct behaviour is refusal.
+- id: g012
+  question: When is a data protection impact assessment mandatory under Article 35?
+  reference_answer: Where processing is likely to result in a high risk, in particular for systematic
+    and extensive automated evaluation producing legal or similarly significant effects, large-scale processing
+    of special categories or criminal conviction data, and large-scale systematic monitoring of a publicly
+    accessible area.
+  answerable: true
+  gold_sources:
+  - source: gdpr_essentials.pdf
+    page: 3
+  tags:
+  - gdpr
+  - dpia
+  difficulty: medium
+  notes: ''
+- id: g013
+  question: What is the deadline for reporting a serious incident?
+  reference_answer: Immediately after the causal link is established and in any event within 15 days of
+    becoming aware; 2 days for a widespread infringement or serious disruption of critical infrastructure,
+    and 10 days where a person has died.
+  answerable: true
+  gold_sources:
+  - source: ai_act_overview.pdf
+    page: 3
+  tags:
+  - ai_act
+  - incidents
+  difficulty: medium
+  notes: ''
+- id: g014
+  question: Which encryption algorithm does the playbook require for personal data at rest?
+  reference_answer: ''
+  answerable: false
+  gold_sources: []
+  tags:
+  - playbook
+  - unanswerable
+  difficulty: medium
+  notes: Corpus does not cover this; the only correct behaviour is refusal.
+- id: g015
+  question: How long must a provider keep technical documentation and logs?
+  reference_answer: Ten years after the system is placed on the market.
+  answerable: true
+  gold_sources:
+  - source: ai_act_overview.pdf
+    page: 2
+  tags:
+  - ai_act
+  - providers
+  difficulty: medium
+  notes: ''
+- id: g016
+  question: Which cloud provider hosts the organisation's production workloads?
+  reference_answer: ''
+  answerable: false
+  gold_sources: []
+  tags:
+  - playbook
+  - unanswerable
+  difficulty: medium
+  notes: Corpus does not cover this; the only correct behaviour is refusal.
+- id: g017
+  question: What training compute threshold creates a presumption of systemic risk?
+  reference_answer: Cumulative training computation greater than 10 to the power of 25 floating point
+    operations.
+  answerable: true
+  gold_sources:
+  - source: ai_act_overview.pdf
+    page: 3
+  tags:
+  - ai_act
+  - gpai
+  difficulty: easy
+  notes: ''
+- id: g018
+  question: Which standardisation organisations are drafting the harmonised standards for high-risk AI
+    systems?
+  reference_answer: ''
+  answerable: false
+  gold_sources: []
+  tags:
+  - ai_act
+  - unanswerable
+  difficulty: medium
+  notes: Corpus does not cover this; the only correct behaviour is refusal.
+- id: g019
+  question: What does Article 10 require of training, validation and testing data?
+  reference_answer: They must be relevant, sufficiently representative, and to the best extent possible
+    free of errors and complete in view of the intended purpose, with mandatory examination for possible
+    biases.
+  answerable: true
+  gold_sources:
+  - source: ai_act_overview.pdf
+    page: 1
+  - source: ai_act_overview.pdf
+    page: 2
+  tags:
+  - ai_act
+  - data_governance
+  difficulty: medium
+  notes: ''
+- id: g020
+  question: What is the training budget allocated to AI literacy for staff?
+  reference_answer: ''
+  answerable: false
+  gold_sources: []
+  tags:
+  - playbook
+  - unanswerable
+  difficulty: medium
+  notes: Corpus does not cover this; the only correct behaviour is refusal.
+- id: g021
+  question: Which law firm reviews the organisation's standard contractual clauses?
+  reference_answer: ''
+  answerable: false
+  gold_sources: []
+  tags:
+  - playbook
+  - unanswerable
+  difficulty: medium
+  notes: Corpus does not cover this; the only correct behaviour is refusal.
+- id: g022
+  question: What protections does a data protection officer have?
+  reference_answer: The DPO must not receive instructions on the exercise of their tasks, may not be dismissed
+    or penalised for performing them, and reports to the highest management level.
+  answerable: true
+  gold_sources:
+  - source: gdpr_essentials.pdf
+    page: 4
+  tags:
+  - gdpr
+  - dpo
+  difficulty: medium
+  notes: ''
+- id: g023
+  question: What is the annual budget of the AI Office?
+  reference_answer: ''
+  answerable: false
+  gold_sources: []
+  tags:
+  - ai_act
+  - unanswerable
+  difficulty: medium
+  notes: Corpus does not cover this; the only correct behaviour is refusal.
+- id: g024
+  question: What minimum safeguards must accompany a permitted automated decision?
+  reference_answer: At least the right to obtain human intervention, to express a point of view, and to
+    contest the decision.
+  answerable: true
+  gold_sources:
+  - source: dpia_governance_playbook.pdf
+    page: 2
+  - source: gdpr_essentials.pdf
+    page: 2
+  tags:
+  - gdpr
+  - article22
+  difficulty: medium
+  notes: ''
+- id: g025
+  question: What fine applies to supplying misleading information to a notified body?
+  reference_answer: Up to 7.5 million EUR or 1% of total worldwide annual turnover.
+  answerable: true
+  gold_sources:
+  - source: ai_act_overview.pdf
+    page: 3
+  tags:
+  - ai_act
+  - penalties
+  difficulty: medium
+  notes: ''
+- id: g026
+  question: What proportion of vendors failed the due-diligence checklist last year?
+  reference_answer: ''
+  answerable: false
+  gold_sources: []
+  tags:
+  - playbook
+  - unanswerable
+  difficulty: medium
+  notes: Corpus does not cover this; the only correct behaviour is refusal.
+- id: g027
+  question: How many people must confirm a remote biometric identification before action is taken?
+  reference_answer: At least two natural persons with the necessary competence must separately verify
+    and confirm the identification.
+  answerable: true
+  gold_sources:
+  - source: ai_act_overview.pdf
+    page: 2
+  tags:
+  - ai_act
+  - oversight
+  difficulty: hard
+  notes: ''
+- id: g028
+  question: When must an organisation designate a data protection officer?
+  reference_answer: Where processing is by a public authority, where core activities require regular and
+    systematic monitoring of data subjects on a large scale, or where core activities involve large-scale
+    processing of special categories or criminal conviction data.
+  answerable: true
+  gold_sources:
+  - source: gdpr_essentials.pdf
+    page: 4
+  tags:
+  - gdpr
+  - dpo
+  difficulty: medium
+  notes: ''
+- id: g029
+  question: What does the AI Act say about scraping facial images?
+  reference_answer: Untargeted scraping of facial images from the internet or CCTV footage to build facial
+    recognition databases is prohibited.
+  answerable: true
+  gold_sources:
+  - source: ai_act_overview.pdf
+    page: 1
+  tags:
+  - ai_act
+  - prohibited
+  difficulty: easy
+  notes: ''
+- id: g030
+  question: What are the two routes by which a system becomes high-risk?
+  reference_answer: Either it is a product, or a safety component of a product, covered by Annex I harmonisation
+    legislation requiring third-party conformity assessment; or it falls within one of the eight Annex
+    III areas.
+  answerable: true
+  gold_sources:
+  - source: ai_act_overview.pdf
+    page: 1
+  tags:
+  - ai_act
+  - high_risk
+  difficulty: medium
+  notes: ''
+- id: g031
+  question: What is the maximum incident notification time allowed in a vendor contract?
+  reference_answer: 24 hours.
+  answerable: true
+  gold_sources:
+  - source: dpia_governance_playbook.pdf
+    page: 1
+  tags:
+  - playbook
+  - vendors
+  difficulty: medium
+  notes: ''
+- id: g032
+  question: What must every general-purpose AI model provider do?
+  reference_answer: Keep technical documentation up to date, provide information to downstream providers,
+    maintain a Union copyright policy respecting machine-readable rights reservations, and publish a sufficiently
+    detailed summary of training content using the AI Office template.
+  answerable: true
+  gold_sources:
+  - source: ai_act_overview.pdf
+    page: 2
+  tags:
+  - ai_act
+  - gpai
+  difficulty: medium
+  notes: ''
+- id: g033
+  question: What is social scoring under Article 5?
+  reference_answer: Evaluating or classifying people over time on social behaviour or personal characteristics
+    where the resulting detrimental treatment is unrelated to the original context or is unjustified and
+    disproportionate.
+  answerable: true
+  gold_sources:
+  - source: ai_act_overview.pdf
+    page: 1
+  tags:
+  - ai_act
+  - prohibited
+  difficulty: medium
+  notes: ''
+- id: g034
+  question: What is the registration fee for entering a high-risk AI system in the EU database?
+  reference_answer: ''
+  answerable: false
+  gold_sources: []
+  tags:
+  - ai_act
+  - unanswerable
+  difficulty: medium
+  notes: Corpus does not cover this; the only correct behaviour is refusal.
+- id: g035
+  question: What is the minimum log retention for a high-risk AI system?
+  reference_answer: Logs must be automatically recorded over the system's lifetime and retained for a
+    period appropriate to the intended purpose, in any case not less than six months unless other law
+    provides otherwise.
+  answerable: true
+  gold_sources:
+  - source: ai_act_overview.pdf
+    page: 1
+  - source: ai_act_overview.pdf
+    page: 2
+  tags:
+  - ai_act
+  - logging
+  difficulty: medium
+  notes: ''
+- id: g036
+  question: Which processing activities trigger an internal assessment?
+  reference_answer: Automated decisions with legal or similarly significant effects, large-scale special
+    category data, systematic monitoring of a public area, matching or combining data sets, data on vulnerable
+    subjects including children and employees, innovative technology, or processing that blocks a right
+    or a service.
+  answerable: true
+  gold_sources:
+  - source: dpia_governance_playbook.pdf
+    page: 1
+  tags:
+  - playbook
+  - dpia
+  difficulty: medium
+  notes: ''
+- id: g037
+  question: Can an Annex III system avoid the high-risk classification?
+  reference_answer: Yes, where it performs a narrow procedural task, improves a previously completed human
+    activity, detects decision patterns without replacing human assessment, or performs a preparatory
+    task; but a system that profiles natural persons is always high-risk.
+  answerable: true
+  gold_sources:
+  - source: ai_act_overview.pdf
+    page: 1
+  tags:
+  - ai_act
+  - high_risk
+  difficulty: hard
+  notes: ''
+- id: g038
+  question: How long is CCTV footage from the office entrance retained?
+  reference_answer: ''
+  answerable: false
+  gold_sources: []
+  tags:
+  - playbook
+  - unanswerable
+  difficulty: medium
+  notes: Corpus does not cover this; the only correct behaviour is refusal.
+- id: g039
+  question: Who approves an exception to the launch checklist?
+  reference_answer: The governance committee, in writing, recorded in the minutes.
+  answerable: true
+  gold_sources:
+  - source: dpia_governance_playbook.pdf
+    page: 2
+  tags:
+  - playbook
+  - governance
+  difficulty: medium
+  notes: ''
+- id: g040
+  question: What is the maximum validity period of a certification issued under Article 42 GDPR?
+  reference_answer: ''
+  answerable: false
+  gold_sources: []
+  tags:
+  - gdpr
+  - unanswerable
+  difficulty: medium
+  notes: Corpus does not cover this; the only correct behaviour is refusal.
+- id: g041
+  question: Can the Article 49 derogations be used for routine large transfers?
+  reference_answer: No. Derogations are exceptions and may not be used for repetitive, large-scale transfers.
+  answerable: true
+  gold_sources:
+  - source: gdpr_essentials.pdf
+    page: 4
+  tags:
+  - gdpr
+  - transfers
+  difficulty: medium
+  notes: ''
+- id: g042
+  question: Which ISO standard must a processor hold to satisfy Article 32?
+  reference_answer: ''
+  answerable: false
+  gold_sources: []
+  tags:
+  - gdpr
+  - unanswerable
+  difficulty: medium
+  notes: Corpus does not cover this; the only correct behaviour is refusal.
+- id: g043
+  question: How long are governance committee minutes retained?
+  reference_answer: ''
+  answerable: false
+  gold_sources: []
+  tags:
+  - playbook
+  - unanswerable
+  difficulty: medium
+  notes: Corpus does not cover this; the only correct behaviour is refusal.
+- id: g044
+  question: What does data protection by default require about accessibility of personal data?
+  reference_answer: By default personal data must not be made accessible, without the individual's intervention,
+    to an indefinite number of natural persons; defaults must also limit the amount collected, the extent
+    of processing, and the storage period.
+  answerable: true
+  gold_sources:
+  - source: gdpr_essentials.pdf
+    page: 2
+  tags:
+  - gdpr
+  - privacy_by_design
+  difficulty: medium
+  notes: ''
+- id: g045
+  question: From when do the Annex III high-risk obligations apply?
+  reference_answer: From 2 August 2026, the date of general application; for high-risk systems that are
+    safety components of Annex I products, from 2 August 2027.
+  answerable: true
+  gold_sources:
+  - source: ai_act_overview.pdf
+    page: 3
+  tags:
+  - ai_act
+  - timeline
+  difficulty: medium
+  notes: ''
+- id: g046
+  question: Which security measures does Article 32 list as appropriate?
+  reference_answer: Pseudonymisation and encryption; ensuring ongoing confidentiality, integrity, availability
+    and resilience; the ability to restore availability and access in a timely manner after an incident;
+    and a process for regularly testing and evaluating effectiveness.
+  answerable: true
+  gold_sources:
+  - source: gdpr_essentials.pdf
+    page: 3
+  tags:
+  - gdpr
+  - security
+  difficulty: easy
+  notes: ''
+- id: g047
+  question: At what age can a child consent to an information society service, and how low may a Member
+    State set it?
+  reference_answer: Consent is valid from age 16; Member States may provide a lower age by law but not
+    below 13.
+  answerable: true
+  gold_sources:
+  - source: gdpr_essentials.pdf
+    page: 1
+  tags:
+  - gdpr
+  - consent
+  - children
+  difficulty: easy
+  notes: ''
+- id: g048
+  question: What are the three exceptions to the Article 22 prohibition on solely automated decisions?
+  reference_answer: The decision is necessary for entering into or performing a contract, is authorised
+    by Union or Member State law with suitable safeguards, or is based on the data subject's explicit
+    consent.
+  answerable: true
+  gold_sources:
+  - source: gdpr_essentials.pdf
+    page: 2
+  tags:
+  - gdpr
+  - article22
+  difficulty: medium
+  notes: ''
+- id: g049
+  question: When did the AI Act prohibitions start to apply?
+  reference_answer: From 2 February 2025, together with the AI literacy obligation in Article 4; the Regulation
+    itself entered into force on 1 August 2024.
+  answerable: true
+  gold_sources:
+  - source: ai_act_overview.pdf
+    page: 3
+  tags:
+  - ai_act
+  - timeline
+  difficulty: easy
+  notes: ''
+- id: g050
+  question: What is the maximum fine for a prohibited AI practice?
+  reference_answer: Up to 35 million EUR or 7% of total worldwide annual turnover for the preceding financial
+    year, whichever is higher.
+  answerable: true
+  gold_sources:
+  - source: ai_act_overview.pdf
+    page: 3
+  tags:
+  - ai_act
+  - penalties
+  difficulty: easy
+  notes: ''
+- id: g051
+  question: What is the escalation path when the incident commander is unreachable?
+  reference_answer: ''
+  answerable: false
+  gold_sources: []
+  tags:
+  - playbook
+  - unanswerable
+  difficulty: medium
+  notes: Corpus does not cover this; the only correct behaviour is refusal.
+- id: g052
+  question: How often is an impact assessment reviewed?
+  reference_answer: Every twelve months, or immediately on a material change to the processing, the model
+    or the vendor.
+  answerable: true
+  gold_sources:
+  - source: dpia_governance_playbook.pdf
+    page: 1
+  tags:
+  - playbook
+  - dpia
+  difficulty: easy
+  notes: ''
+- id: g053
+  question: What does the model register record?
+  reference_answer: Every deployed model with its purpose, risk classification, owner, date of last evaluation,
+    evaluation results and the date of the next scheduled review.
+  answerable: true
+  gold_sources:
+  - source: dpia_governance_playbook.pdf
+    page: 2
+  tags:
+  - playbook
+  - governance
+  difficulty: medium
+  notes: ''
+- id: g054
+  question: What must providers of chatbots disclose?
+  reference_answer: That the person is interacting with an AI system, unless that is obvious to a reasonably
+    well-informed person.
+  answerable: true
+  gold_sources:
+  - source: ai_act_overview.pdf
+    page: 2
+  tags:
+  - ai_act
+  - transparency
+  difficulty: easy
+  notes: ''
+- id: g055
+  question: What support do SMEs get under the AI Act?
+  reference_answer: Priority access to regulatory sandboxes and reduced conformity assessment fees.
+  answerable: true
+  gold_sources:
+  - source: ai_act_overview.pdf
+    page: 3
+  tags:
+  - ai_act
+  - sme
+  difficulty: easy
+  notes: ''
+- id: g056
+  question: What is the AI Act's definition of a small mid-cap enterprise?
+  reference_answer: ''
+  answerable: false
+  gold_sources: []
+  tags:
+  - ai_act
+  - unanswerable
+  difficulty: medium
+  notes: Corpus does not cover this; the only correct behaviour is refusal.
+- id: g057
+  question: What is the deadline for appealing an administrative fine imposed by a supervisory authority?
+  reference_answer: ''
+  answerable: false
+  gold_sources: []
+  tags:
+  - gdpr
+  - unanswerable
+  difficulty: medium
+  notes: Corpus does not cover this; the only correct behaviour is refusal.
+- id: g058
+  question: What must a processor do when it becomes aware of a breach?
+  reference_answer: Notify the controller without undue delay.
+  answerable: true
+  gold_sources:
+  - source: gdpr_essentials.pdf
+    page: 3
+  tags:
+  - gdpr
+  - breach
+  difficulty: easy
+  notes: ''
+- id: g059
+  question: How many factors must a supervisory authority weigh when setting a fine?
+  reference_answer: Eleven factors, including the nature and gravity of the infringement, its duration,
+    the degree of responsibility, and whether the controller notified it.
+  answerable: true
+  gold_sources:
+  - source: gdpr_essentials.pdf
+    page: 4
+  tags:
+  - gdpr
+  - fines
+  difficulty: hard
+  notes: ''
+- id: g060
+  question: How many members sit on the European Data Protection Board?
+  reference_answer: ''
+  answerable: false
+  gold_sources: []
+  tags:
+  - gdpr
+  - unanswerable
+  difficulty: medium
+  notes: Corpus does not cover this; the only correct behaviour is refusal.
+- id: g061
+  question: When is the post-incident review held?
+  reference_answer: Within 10 working days; it is blameless and produces a written action list with named
+    owners and dates.
+  answerable: true
+  gold_sources:
+  - source: dpia_governance_playbook.pdf
+    page: 2
+  tags:
+  - playbook
+  - incidents
+  difficulty: easy
+  notes: ''
+- id: g062
+  question: How quickly must an incident be raised internally?
+  reference_answer: Within 30 minutes of detection by the on-call engineer.
+  answerable: true
+  gold_sources:
+  - source: dpia_governance_playbook.pdf
+    page: 2
+  tags:
+  - playbook
+  - incidents
+  difficulty: easy
+  notes: ''
+- id: g063
+  question: Is emotion recognition prohibited in the workplace?
+  reference_answer: Yes. Inferring emotions in the workplace or in education institutions is prohibited,
+    except for medical or safety reasons.
+  answerable: true
+  gold_sources:
+  - source: ai_act_overview.pdf
+    page: 1
+  tags:
+  - ai_act
+  - prohibited
+  difficulty: easy
+  notes: ''
+- id: g064
+  question: Does the AI Act apply to AI systems developed exclusively for military purposes?
+  reference_answer: ''
+  answerable: false
+  gold_sources: []
+  tags:
+  - ai_act
+  - unanswerable
+  difficulty: medium
+  notes: Corpus does not cover this; the only correct behaviour is refusal.
+- id: g065
+  question: How long does a supervisory authority have to respond to a prior consultation?
+  reference_answer: Eight weeks, extendable by a further six weeks.
+  answerable: true
+  gold_sources:
+  - source: gdpr_essentials.pdf
+    page: 4
+  tags:
+  - gdpr
+  - dpia
+  difficulty: medium
+  notes: ''
+- id: g066
+  question: How many notified bodies have been designated under the AI Act so far?
+  reference_answer: ''
+  answerable: false
+  gold_sources: []
+  tags:
+  - ai_act
+  - unanswerable
+  difficulty: medium
+  notes: Corpus does not cover this; the only correct behaviour is refusal.
+- id: g067
+  question: How must synthetic content be marked?
+  reference_answer: In a machine-readable format and detectable as artificially generated or manipulated.
+  answerable: true
+  gold_sources:
+  - source: ai_act_overview.pdf
+    page: 2
+  tags:
+  - ai_act
+  - transparency
+  difficulty: medium
+  notes: ''
+- id: g068
+  question: Must employees be told before a high-risk AI system is used at work?
+  reference_answer: Yes. Deployers must inform workers' representatives before putting a high-risk system
+    into service in the workplace.
+  answerable: true
+  gold_sources:
+  - source: ai_act_overview.pdf
+    page: 2
+  tags:
+  - ai_act
+  - deployers
+  difficulty: medium
+  notes: ''
+- id: g069
+  question: Which categories of data does Article 9 prohibit processing by default?
+  reference_answer: Racial or ethnic origin, political opinions, religious or philosophical beliefs, trade
+    union membership, genetic data, biometric data used to uniquely identify a person, health data, and
+    data on sex life or sexual orientation.
+  answerable: true
+  gold_sources:
+  - source: gdpr_essentials.pdf
+    page: 1
+  tags:
+  - gdpr
+  - special_categories
+  difficulty: easy
+  notes: ''
+- id: g070
+  question: When can a controller avoid telling affected individuals about a high-risk breach?
+  reference_answer: Where the data was rendered unintelligible, for example by encryption; where subsequent
+    measures eliminated the high risk; or where individual communication would involve disproportionate
+    effort, in which case a public communication is required instead.
+  answerable: true
+  gold_sources:
+  - source: gdpr_essentials.pdf
+    page: 3
+  tags:
+  - gdpr
+  - breach
+  difficulty: hard
+  notes: ''
+- id: g071
+  question: Which supervisory authority is the lead authority for a cross-border complaint?
+  reference_answer: ''
+  answerable: false
+  gold_sources: []
+  tags:
+  - gdpr
+  - unanswerable
+  difficulty: medium
+  notes: Corpus does not cover this; the only correct behaviour is refusal.
+- id: g072
+  question: How does the AI Act define an AI system?
+  reference_answer: A machine-based system designed to operate with varying levels of autonomy, that may
+    exhibit adaptiveness after deployment, and that infers from its input how to generate outputs such
+    as predictions, content, recommendations or decisions influencing physical or virtual environments.
+  answerable: true
+  gold_sources:
+  - source: ai_act_overview.pdf
+    page: 1
+  tags:
+  - ai_act
+  - definitions
+  difficulty: easy
+  notes: ''
+- id: g073
+  question: How easy must it be to withdraw consent?
+  reference_answer: Withdrawal must be as easy as giving consent, and the data subject may withdraw at
+    any time.
+  answerable: true
+  gold_sources:
+  - source: gdpr_essentials.pdf
+    page: 1
+  tags:
+  - gdpr
+  - consent
+  difficulty: easy
+  notes: ''
+- id: g074
+  question: What happens if the residual risk score is 12 or above?
+  reference_answer: It may not be accepted internally and requires prior consultation of the supervisory
+    authority before processing begins.
+  answerable: true
+  gold_sources:
+  - source: dpia_governance_playbook.pdf
+    page: 1
+  tags:
+  - playbook
+  - risk
+  difficulty: medium
+  notes: ''
+- id: g075
+  question: When may a controller charge a fee for a data subject request?
+  reference_answer: Only where the request is manifestly unfounded or excessive, and the controller bears
+    the burden of demonstrating that character.
+  answerable: true
+  gold_sources:
+  - source: gdpr_essentials.pdf
+    page: 2
+  tags:
+  - gdpr
+  - data_subject_rights
+  difficulty: medium
+  notes: ''
+- id: g076
+  question: When is breach notification to the supervisory authority not required?
+  reference_answer: Where the breach is unlikely to result in a risk to the rights and freedoms of natural
+    persons.
+  answerable: true
+  gold_sources:
+  - source: gdpr_essentials.pdf
+    page: 3
+  tags:
+  - gdpr
+  - breach
+  difficulty: medium
+  notes: ''
+- id: g077
+  question: How many lawful bases for processing does Article 6 provide, and what are they?
+  reference_answer: 'Six: consent, performance of a contract, compliance with a legal obligation, protection
+    of vital interests, a task in the public interest or official authority, and legitimate interests.'
+  answerable: true
+  gold_sources:
+  - source: gdpr_essentials.pdf
+    page: 1
+  tags:
+  - gdpr
+  - lawful_basis
+  difficulty: easy
+  notes: ''
+- id: g078
+  question: By when must Member States have an operational AI regulatory sandbox?
+  reference_answer: By 2 August 2026, with at least one sandbox at national level, alone or jointly with
+    other Member States.
+  answerable: true
+  gold_sources:
+  - source: ai_act_overview.pdf
+    page: 3
+  tags:
+  - ai_act
+  - sandbox
+  difficulty: medium
+  notes: ''
+- id: g079
+  question: What does the accountability principle require of a controller?
+  reference_answer: The controller is responsible for compliance with all the Article 5 principles and
+    must be able to demonstrate that compliance, which is why documentation is a legal requirement.
+  answerable: true
+  gold_sources:
+  - source: gdpr_essentials.pdf
+    page: 1
+  tags:
+  - gdpr
+  - principles
+  difficulty: medium
+  notes: ''
+- id: g080
+  question: What is the deadline for responding to a data subject request, and can it be extended?
+  reference_answer: Without undue delay and within one month of receipt; it may be extended by two further
+    months where necessary, provided the data subject is told of the extension and the reasons within
+    one month of receipt.
+  answerable: true
+  gold_sources:
+  - source: gdpr_essentials.pdf
+    page: 2
+  tags:
+  - gdpr
+  - data_subject_rights
+  difficulty: easy
+  notes: ''

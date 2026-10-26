@@ -1,0 +1,84 @@
+# Default configuration.
+#
+# Everything the pipeline does is described here; the file is hashed into every
+# result row, so a number can always be traced back to the settings that
+# produced it. ${VAR} and ${VAR:default} are expanded from the environment.
+
+name: default
+seed: 20260101
+
+paths:
+  corpus_dir: data/corpus
+  sample_dir: data/samples
+  index_dir: artifacts/index
+  cache_dir: artifacts/cache
+  results_dir: results
+  gold_set: data/gold/gold_set.yaml
+  injection_set: data/injection/injection_docs.yaml
+
+ingest:
+  chunker: section          # fixed | sentence | section
+  chunk_size: 900           # characters
+  chunk_overlap: 150
+  min_chunk_chars: 120
+  layout_aware: true        # use font metrics to recover headings
+  drop_repeated_headers: true
+  heading_scale: 1.12
+
+embedding:
+  backend: auto             # auto -> sentence-transformers if installed, else hashing
+  model: sentence-transformers/all-MiniLM-L6-v2
+  dim: 512                  # hashing fallback dimensionality
+  batch_size: 32
+
+store:
+  backend: auto             # auto -> chroma, then faiss, then numpy
+  collection: ragevals
+
+retrieval:
+  mode: hybrid              # dense | bm25 | hybrid
+  top_k: 5
+  candidate_k: 20
+  rrf_k: 60
+  dense_weight: 0.5
+  bm25_weight: 0.5
+  reranker: none            # none | lexical | cross-encoder
+  rerank_model: cross-encoder/ms-marco-MiniLM-L-6-v2
+  cache: true
+  min_score: 0.0
+
+generation:
+  backend: offline          # offline | ollama | openai
+  model: offline-extractive
+  temperature: 0.0
+  max_tokens: 700
+  base_url: "${OLLAMA_HOST:http://localhost:11434}"
+  api_key_env: OPENAI_API_KEY
+  api_base: "${OPENAI_BASE_URL:https://api.openai.com/v1}"
+  timeout_s: 120.0
+  price_per_1k_input: 0.0
+  price_per_1k_output: 0.0
+  simulate_injection_susceptibility: true
+  coverage_threshold: 0.34    # offline backend only: abstain when the best passage
+                              # covers less than this share of the question's terms
+  max_sentences: 3            # offline backend only: sentences per answer
+
+safety:
+  delimit_context: true
+  instruction_hierarchy: true
+  sanitize_context: true
+  validate_output: true
+  support_threshold: 0.25
+  max_context_chars: 12000
+
+evaluation:
+  use_ragas: false          # opt-in; needs a key and a large dependency tree
+  faithfulness_threshold: 0.30
+  correctness_threshold: 0.60
+  refusal_marker: INSUFFICIENT_CONTEXT
+  judge:
+    backend: heuristic      # heuristic | same-as-generator | openai | ollama
+    model: gpt-4o-mini
+    temperature: 0.0
+    rubric: configs/judge_rubric.yaml
+    cache: true

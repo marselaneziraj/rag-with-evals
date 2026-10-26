@@ -1,0 +1,6 @@
+# Core runtime: this is everything the evaluation suite needs.
+numpy>=1.24
+pandas>=2.0
+matplotlib>=3.7
+pyyaml>=6.0
+pymupdf>=1.24

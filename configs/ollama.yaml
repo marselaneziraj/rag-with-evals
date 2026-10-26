@@ -1,0 +1,13 @@
+# Local model via Ollama -- a real LLM with no API key.
+#   ollama serve && ollama pull llama3.1:8b
+#   python -m ragevals.cli evaluate -c configs/ollama.yaml
+name: ollama-llama31-8b
+generation:
+  backend: ollama
+  model: llama3.1:8b
+  temperature: 0.0
+  max_tokens: 700
+  base_url: "${OLLAMA_HOST:http://localhost:11434}"
+evaluation:
+  judge:
+    backend: same-as-generator   # judged by the same local model; see the bias note

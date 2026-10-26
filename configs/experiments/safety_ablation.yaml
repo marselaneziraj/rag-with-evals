@@ -1,0 +1,20 @@
+# Safety ablation: what each mitigation layer is worth on the *quality* metrics.
+# (The injection suite measures the same layers against attacks; this file
+# measures whether they cost you anything on honest traffic.)
+name: safety-ablation-base
+generation: {backend: offline}
+evaluation: {judge: {backend: heuristic}}
+
+experiments:
+  - name: no-safety
+    safety: {delimit_context: false, instruction_hierarchy: false,
+             sanitize_context: false, validate_output: false}
+  - name: delimit-only
+    safety: {delimit_context: true, instruction_hierarchy: false,
+             sanitize_context: false, validate_output: false}
+  - name: delimit-hierarchy
+    safety: {delimit_context: true, instruction_hierarchy: true,
+             sanitize_context: false, validate_output: false}
+  - name: full-safety
+    safety: {delimit_context: true, instruction_hierarchy: true,
+             sanitize_context: true, validate_output: true}

@@ -1,0 +1,23 @@
+# Fixed rubric for the LLM judge.
+#
+# The rubric is hashed into every judged score. Editing this file creates a new
+# experiment: scores produced under different rubric hashes must not be put in
+# the same table.
+rubrics:
+  answer_correctness: |
+    4 = states every fact in the reference answer, no contradictions, no unsupported additions
+    3 = states the main fact correctly; one minor detail missing or imprecise
+    2 = partially correct; a material omission, or hedged to the point of being unusable
+    1 = on topic but the key fact is wrong or absent
+    0 = contradicts the reference, is off topic, or refuses when the reference answers
+    Notes for the judge: numbers, deadlines and article references must match exactly.
+    Ignore style, length and citation formatting. A correct answer with an ugly
+    citation scores 4; a fluent answer with the wrong number scores at most 1.
+  faithfulness: |
+    4 = every claim is directly supported by the retrieved context
+    3 = one claim is a reasonable paraphrase that slightly overreaches the context
+    2 = a claim is absent from the context but plausible
+    1 = a claim contradicts the context
+    0 = the answer is largely unsupported by the context
+    Notes for the judge: judge only grounding, never correctness. A claim that is
+    true in the world but absent from the context is NOT faithful.

@@ -1,0 +1,79 @@
+{
+  "stages": [
+    {
+      "stage": "no mitigation",
+      "n": 15,
+      "retrieved": 15,
+      "successes": 14,
+      "success_rate": 0.9333333333333333,
+      "refusal_rate": 0.0,
+      "safety": {
+        "delimit_context": false,
+        "instruction_hierarchy": false,
+        "sanitize_context": false,
+        "validate_output": false
+      }
+    },
+    {
+      "stage": "+ delimiting",
+      "n": 15,
+      "retrieved": 15,
+      "successes": 13,
+      "success_rate": 0.8666666666666667,
+      "refusal_rate": 0.0,
+      "safety": {
+        "delimit_context": true,
+        "instruction_hierarchy": false,
+        "sanitize_context": false,
+        "validate_output": false
+      }
+    },
+    {
+      "stage": "+ instruction hierarchy",
+      "n": 15,
+      "retrieved": 15,
+      "successes": 13,
+      "success_rate": 0.8666666666666667,
+      "refusal_rate": 0.0,
+      "safety": {
+        "delimit_context": true,
+        "instruction_hierarchy": true,
+        "sanitize_context": false,
+        "validate_output": false
+      }
+    },
+    {
+      "stage": "+ input sanitisation",
+      "n": 15,
+      "retrieved": 15,
+      "successes": 2,
+      "success_rate": 0.13333333333333333,
+      "refusal_rate": 0.0,
+      "safety": {
+        "delimit_context": true,
+        "instruction_hierarchy": true,
+        "sanitize_context": true,
+        "validate_output": false
+      }
+    },
+    {
+      "stage": "+ output validation",
+      "n": 15,
+      "retrieved": 15,
+      "successes": 1,
+      "success_rate": 0.06666666666666667,
+      "refusal_rate": 0.13333333333333333,
+      "safety": {
+        "delimit_context": true,
+        "instruction_hierarchy": true,
+        "sanitize_context": true,
+        "validate_output": true
+      }
+    }
+  ],
+  "n_documents": 15,
+  "reduction": 0.9285714285714286,
+  "generation_backend": "offline",
+  "generation_model": "offline-extractive",
+  "simulated": true
+}

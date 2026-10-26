@@ -1,0 +1,54 @@
+# Experiment sweep: one base configuration plus named patches.
+#
+#   python -m ragevals.cli experiment --sweep configs/experiments/sweep.yaml
+#
+# Each entry is deep-merged over the base, evaluated against the same gold set
+# with the same judge, and written to results/runs/<name>-<fingerprint>/.
+# Only the patched keys differ, which is what makes the comparison controlled.
+
+name: sweep-base
+paths:
+  corpus_dir: data/corpus
+  gold_set: data/gold/gold_set.yaml
+  results_dir: results
+generation:
+  backend: offline
+  model: offline-extractive
+evaluation:
+  judge:
+    backend: heuristic
+
+experiments:
+  - name: bm25-only
+    retrieval: {mode: bm25, top_k: 5}
+
+  - name: dense-only
+    retrieval: {mode: dense, top_k: 5}
+
+  - name: hybrid-k5
+    retrieval: {mode: hybrid, top_k: 5}
+
+  - name: hybrid-k8
+    retrieval: {mode: hybrid, top_k: 8}
+
+  - name: hybrid-rerank
+    retrieval: {mode: hybrid, top_k: 5, candidate_k: 20, reranker: lexical}
+
+  - name: fixed-chunks-500
+    ingest: {chunker: fixed, chunk_size: 500, chunk_overlap: 100}
+    retrieval: {mode: hybrid, top_k: 5}
+
+  - name: sentence-chunks-1400
+    ingest: {chunker: sentence, chunk_size: 1400, chunk_overlap: 200}
+    retrieval: {mode: hybrid, top_k: 5}
+
+  - name: section-chunks-900
+    ingest: {chunker: section, chunk_size: 900, chunk_overlap: 150}
+    retrieval: {mode: hybrid, top_k: 5}
+
+  # The abstention trade-off: refuse more readily and watch refusal accuracy rise
+  # while answer correctness on answerable items falls. There is no setting that
+  # wins both columns; the point of the runner is to show you the exchange rate.
+  - name: strict-abstention
+    retrieval: {mode: hybrid, top_k: 5}
+    generation: {coverage_threshold: 0.45}

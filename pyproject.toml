@@ -1,0 +1,66 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rag-with-evals"
+version = "1.0.0"
+description = "Retrieval-augmented QA whose product is its evaluation suite"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+keywords = ["rag", "evaluation", "llm", "retrieval", "prompt-injection"]
+
+# Deliberately small. Everything heavier -- sentence-transformers, chroma,
+# faiss, ragas, streamlit -- is an extra, because the evaluation suite must run
+# in CI on a clean machine with no model download and no API key.
+dependencies = [
+    "numpy>=1.24",
+    "pandas>=2.0",
+    "matplotlib>=3.7",
+    "pyyaml>=6.0",
+    "pymupdf>=1.24",
+]
+
+[project.urls]
+Homepage = "https://github.com/marselaneziraj/rag-with-evals"
+Repository = "https://github.com/marselaneziraj/rag-with-evals"
+Issues = "https://github.com/marselaneziraj/rag-with-evals/issues"
+Methodology = "https://github.com/marselaneziraj/rag-with-evals/blob/main/docs/METHODOLOGY.md"
+
+[project.optional-dependencies]
+embeddings = ["sentence-transformers>=3.0"]
+chroma = ["chromadb>=0.5"]
+faiss = ["faiss-cpu>=1.8"]
+ragas = ["ragas>=0.2", "datasets>=2.19", "langchain-openai>=0.2"]
+ui = ["streamlit>=1.36"]
+dev = ["pytest>=8.0", "pytest-cov>=5.0", "ruff>=0.5"]
+all = [
+    "sentence-transformers>=3.0", "chromadb>=0.5", "faiss-cpu>=1.8",
+    "streamlit>=1.36", "pytest>=8.0", "pytest-cov>=5.0", "ruff>=0.5",
+]
+
+[project.scripts]
+ragevals = "ragevals.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+filterwarnings = ["ignore::DeprecationWarning"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B"]
+ignore = ["E501", "B008"]
+
+[tool.coverage.run]
+source = ["src/ragevals"]

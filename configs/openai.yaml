@@ -1,0 +1,16 @@
+# Hosted API model. Requires OPENAI_API_KEY in the environment.
+# Prices are declared here rather than hard-coded, because vendor pricing moves.
+name: openai-gpt4o-mini
+generation:
+  backend: openai
+  model: gpt-4o-mini
+  temperature: 0.0
+  max_tokens: 700
+  price_per_1k_input: 0.00015
+  price_per_1k_output: 0.0006
+evaluation:
+  use_ragas: false
+  judge:
+    backend: openai
+    model: gpt-4o-mini
+    temperature: 0.0
